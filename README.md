@@ -74,3 +74,64 @@ Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 ## Further help
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
+
+## File structure
+
+```
+/
+|- /apps # List of all applications (web, mobile, node)
+|- /libs # List of all libraries shared on project
+|--- /components # List of all shared components
+|--- /screens # List of all shared screen
+|--- /hooks # List of all commons hooks
+|--- /helpers # List of all utils helpers (exemple: convert date to UTC, generate UUID)
+|--- /langs # List of all langue shared between apps
+|--- /core # Directory to centralise the core services
+|----- /<domaine> # Lib to specifique domaine service (ex: shop, auth, analytics, ...)
+|------- /api # List of all dataprovider to call api
+|------- /entities # List of all entities related to this domain
+|------- /hooks # List of all hook
+|------- /normalizer # List of all data normalizer
+|------- /slices # List of all redux slices
+|------- /thunks # List of all redux thunks
+```
+
+## Utils
+
+### Start WebSite
+
+```bash
+yarn start website
+```
+
+### Start Mobile App
+
+#### Start Mobile React Native
+
+```bash
+yarn start mobile
+```
+
+#### Run Android
+
+```bash
+yarn nx run-android mobile
+```
+
+#### Run iOS
+
+```bash
+yarn nx run-ios mobile
+```
+
+###Creat a new lib
+
+```bash
+yarn nx g @nrwl/react:lib <name-of-lib>
+```
+
+###Creat a new component on lib
+
+```bash
+yarn nx g @nrwl/react:component <name-of-component> --project <name-of-lib>
+```

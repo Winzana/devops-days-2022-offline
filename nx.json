@@ -2,21 +2,19 @@
   "npmScope": "pam",
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
-    "tsconfig.json": "*",
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     "tslint.json": "*",
-    "nx.json": "*"
+    "nx.json": "*",
+    "tsconfig.base.json": "*",
+    ".eslintrc.json": "*"
   },
   "projects": {
-    "pam": {
-      "tags": []
-    },
-    "pam-e2e": {
-      "tags": [],
-      "implicitDependencies": ["pam"]
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
     }
-  }
+  },
+  "affected": { "defaultBase": "master" }
 }
