@@ -135,3 +135,19 @@ yarn nx g @nrwl/react:lib <name-of-lib>
 ```bash
 yarn nx g @nrwl/react:component <name-of-component> --project <name-of-lib>
 ```
+
+If you want a generic component, change the `.babelrc` file, on the root of the lib:
+
+```json
+{
+  "presets": ["@nrwl/react/babel"],
+  "plugins": [
+    [
+      "react-native-web",
+      {
+        "commonjs": true
+      }
+    ]
+  ]
+}
+```

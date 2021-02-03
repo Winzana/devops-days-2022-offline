@@ -6,6 +6,15 @@
     "react-native": "*",
     "react": "*",
     "@testing-library/react-native": "*",
-    "@testing-library/jest-native": "*"
+    "@testing-library/jest-native": "*",
+    "react-native-gesture-handler": "*",
+    "react-native-safe-area-context": "^3.1.9",
+    "react-native-paper": "^4.7.1",
+    "react-native-reanimated": "^1.13.2",
+    "react-native-screens": "^2.17.1",
+    "react-native-vector-icons": "^8.0.0",
+    "@react-navigation/native": "*",
+    "@react-navigation/stack": "*",
+    "@testing-library/react": "*"
   }
 }
