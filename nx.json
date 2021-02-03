@@ -2,21 +2,36 @@
   "npmScope": "pam",
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     "tslint.json": "*",
     "nx.json": "*",
     "tsconfig.base.json": "*",
     ".eslintrc.json": "*"
   },
   "projects": {
-    "website": { "tags": [] },
-    "website-e2e": { "tags": [], "implicitDependencies": ["website"] }
+    "website": {
+      "tags": []
+    },
+    "website-e2e": {
+      "tags": [],
+      "implicitDependencies": ["website"]
+    },
+    "mobile": {
+      "tags": []
+    }
   },
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
     }
   },
-  "affected": { "defaultBase": "master" }
+  "affected": {
+    "defaultBase": "master"
+  }
 }
