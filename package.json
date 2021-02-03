@@ -5,6 +5,8 @@
   "scripts": {
     "nx": "nx",
     "start": "nx serve",
+    "start:android": "nx run-android",
+    "start:ios": "nx run-ios",
     "build": "nx build",
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",

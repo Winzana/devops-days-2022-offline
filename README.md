@@ -115,13 +115,13 @@ yarn start mobile
 #### Run Android
 
 ```bash
-yarn nx run-android mobile
+yarn start:android mobile
 ```
 
 #### Run iOS
 
 ```bash
-yarn nx run-ios mobile
+yarn start:ios mobile
 ```
 
 ###Creat a new lib
