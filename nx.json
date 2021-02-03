@@ -9,6 +9,8 @@
     ".eslintrc.json": "*"
   },
   "projects": {
+    "website": { "tags": [] },
+    "website-e2e": { "tags": [], "implicitDependencies": ["website"] }
   },
   "tasksRunnerOptions": {
     "default": {
