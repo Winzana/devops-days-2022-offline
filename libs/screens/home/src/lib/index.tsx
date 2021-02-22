@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Button, Text } from 'react-native-paper';
 import { Layout } from '@pam/components/layout';
 
 /* eslint-disable-next-line */
@@ -7,8 +7,17 @@ export interface HomeProps {}
 
 export function Home(props: HomeProps) {
   return (
-    <Layout>
-      <Text>Home Screen</Text>
-    </Layout>
+    <>
+      <Layout>
+        <Text>Home Screen</Text>
+        <Button
+          icon="camera"
+          mode="contained"
+          onPress={() => console.log('Pressed')}
+        >
+          Press me
+        </Button>
+      </Layout>
+    </>
   );
 }

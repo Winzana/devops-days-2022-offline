@@ -1,9 +1,9 @@
-import React, { ReactComponentElement } from 'react';
+import React, { ReactComponentElement, ReactElement } from 'react';
 import { ScrollView } from 'react-native';
 
 /* eslint-disable-next-line */
 export interface ComponentsLayoutProps {
-  children: ReactComponentElement<any>;
+  children: any;
 }
 
 export const Layout = ({ children }: ComponentsLayoutProps) => {

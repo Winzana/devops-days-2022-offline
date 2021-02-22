@@ -1,4 +1,23 @@
 {
-  "presets": ["@nrwl/web/babel"],
-  "babelrcRoots": ["*"]
+  "presets": [
+    "@nrwl/web/babel",
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": ["last 2 versions", "ie >= 11"]
+        },
+        "corejs": "3.1.3",
+        "useBuiltIns": "usage"
+      }
+    ],
+    "@babel/preset-react",
+    "module:metro-react-native-babel-preset"
+  ],
+  "babelrcRoots": ["*"],
+  "env": {
+    "production": {
+      "plugins": ["react-native-paper/babel"]
+    }
+  }
 }

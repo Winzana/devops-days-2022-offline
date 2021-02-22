@@ -15,6 +15,8 @@
     "react-native-vector-icons": "^8.0.0",
     "@react-navigation/native": "*",
     "@react-navigation/stack": "*",
-    "@testing-library/react": "*"
+    "@testing-library/react": "*",
+    "react-router-dom": "*",
+    "react-native-web": "*"
   }
 }
