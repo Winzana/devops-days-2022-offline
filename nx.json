@@ -14,7 +14,8 @@
     "mobile": { "tags": [] },
     "screens-home": { "tags": [] },
     "components-layout": { "tags": [] },
-    "navigators": { "tags": [] }
+    "navigators": { "tags": [] },
+    "store": { "tags": [] }
   },
   "tasksRunnerOptions": {
     "default": {

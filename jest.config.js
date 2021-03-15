@@ -5,5 +5,6 @@ module.exports = {
     '<rootDir>/libs/screens/home',
     '<rootDir>/libs/components/layout',
     '<rootDir>/libs/navigators',
+    '<rootDir>/libs/store',
   ],
 };

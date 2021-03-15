@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigator } from '@pam/navigators';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import { ProviderStore } from '@pam/store';
 
 const theme = {
   ...DefaultTheme,
@@ -13,7 +14,7 @@ const theme = {
 
 export const App = () => {
   return (
-    <>
+    <ProviderStore>
       <PaperProvider theme={theme}>
         <React.Fragment>
           <style type="text/css">{`
@@ -25,7 +26,7 @@ export const App = () => {
           <Navigator />
         </React.Fragment>
       </PaperProvider>
-    </>
+    </ProviderStore>
   );
 };
 

@@ -17,6 +17,9 @@
     "@react-navigation/stack": "*",
     "@testing-library/react": "*",
     "react-router-dom": "*",
-    "react-native-web": "*"
+    "react-native-web": "*",
+    "react-redux": "*",
+    "@reduxjs/toolkit": "*",
+    "redux-logger": "*"
   }
 }

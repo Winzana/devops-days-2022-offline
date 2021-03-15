@@ -20,7 +20,8 @@
     "paths": {
       "@pam/screens/home": ["libs/screens/home/src/index.ts"],
       "@pam/components/layout": ["libs/components/layout/src/index.ts"],
-      "@pam/navigators": ["libs/navigators/src/index.ts"]
+      "@pam/navigators": ["libs/navigators/src/index.ts"],
+      "@pam/store": ["libs/store/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
