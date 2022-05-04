@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "offline": "apps/offline",
+    "offline-e2e": "apps/offline-e2e"
+  }
+}
