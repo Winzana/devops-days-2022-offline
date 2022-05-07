@@ -1,0 +1,22 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo:5.0
+    ports:
+      - 27017:27017
+    volumes:
+      - ./datas/mongo:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+  api:
+    image: gcr.io/winzana-workshop/devop-day-2022/api:v1.0.0
+    command: ['node', './dist/apps/api/main.js']
+    env_file: .env
+    ports:
+      - 8080:8080
+
+  # webapp:
+  #   image: gcr.io/winzana-workshop/devop-day-2022/webapp:latest
+  #   ports:
+  #     - 8080:8080

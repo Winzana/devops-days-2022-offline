@@ -1,7 +1,17 @@
 {
   "version": 2,
   "projects": {
-    "offline": "apps/offline",
-    "offline-e2e": "apps/offline-e2e"
+    "api": "apps/api",
+    "common-components": "libs/common/components",
+    "common-screens": "libs/common/screens",
+    "common-store": "libs/common/store",
+    "entities": "libs/common/entities",
+    "helpers": "libs/common/helpers",
+    "mobile": "apps/mobile",
+    "mobile-e2e": "apps/mobile-e2e",
+    "navigators": "libs/common/navigators",
+    "shared": "libs/shared",
+    "webapp": "apps/webapp",
+    "webapp-e2e": "apps/webapp-e2e"
   }
 }

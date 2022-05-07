@@ -1,0 +1,22 @@
+{
+  "sourceRoot": "libs/common/navigators/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/common/navigators/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/common/navigators"],
+      "options": {
+        "jestConfig": "libs/common/navigators/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}
