@@ -1,16 +1,16 @@
 import React from 'react';
 
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import { Home } from '@screens/home';
+import { Add } from '@screens/add';
 
 export const Navigator = () => {
   return (
     <Router>
-      <Switch>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/add" element={<Add />} />
+      </Routes>
     </Router>
   );
 };

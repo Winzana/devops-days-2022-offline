@@ -17,7 +17,10 @@
     "navigators": { "tags": [] },
     "store": { "tags": [] },
     "api": { "tags": [] },
-    "shared": { "tags": [] }
+    "shared": { "tags": [] },
+    "screens-add": { "tags": [] },
+    "entities": { "tags": [] },
+    "helpers": { "tags": [] }
   },
   "tasksRunnerOptions": {
     "default": {

@@ -1,5 +1,4 @@
 /* eslint-disable-next-line */
-import { ScrollView } from 'react-native';
 import React from 'react';
 import { store } from './store';
 import { Provider } from 'react-redux';

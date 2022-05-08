@@ -1,8 +1,11 @@
+import { AnyAction } from 'redux';
+import { ThunkAction } from 'redux-thunk';
+
 export interface IPayloadError {
   /**
    * Api Error
    */
-  code?: string;
+  code?: string | number;
 
   /**
    * Determine if error come from axios or not
@@ -37,57 +40,9 @@ export interface IPayloadError {
   stack: string;
 }
 
-export interface IState {
-  [key: string]: {
-    /**
-     * HTTP Code or Error Code
-     *
-     * @type {string}
-     */
-    code?: string;
-    /**
-     * Indicate if the error cames from axios or not
-     *
-     * @type {boolean}
-     */
-    isAxiosError: boolean;
-    /**
-     * Error message
-     *
-     * @type {string}
-     */
-    message: string;
-    /**
-     * Name of the error
-     *
-     * @type {string}
-     */
-    name: string;
-    /**
-     * Stack trace error
-     *
-     * @type {string}
-     */
-    stack: string;
-  };
-}
-
-console.warn('test');
-// eslint-disable-next-line @typescript-eslint/interface-name-prefix
-export interface IErrorAction {
-  /**
-   * Error payload containing error relatives informations
-   *
-   * @type {IPayloadError}
-   * @memberof IErrorAction
-   */
-  payload: IPayloadError;
-
-  /**
-   * Action type eg: fetch/addUserFailed
-   *
-   * @type {string}
-   * @memberof IErrorAction
-   */
-  type: string;
-}
+export type AppThunk<ReturnType = void, State = unknown> = ThunkAction<
+  ReturnType,
+  State,
+  unknown,
+  AnyAction
+>;

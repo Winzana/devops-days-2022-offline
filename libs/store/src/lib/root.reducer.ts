@@ -1,23 +1,26 @@
-import { errorReducer } from './generic.error.reducer';
-import { ReduxDispatch } from './store.entity';
-
-import { combineReducers } from '@reduxjs/toolkit';
+import { Action, combineReducers } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
+import { ThunkDispatch } from 'redux-thunk';
+import { contentSlice, ContentState } from './content';
+import { offlineSlice, OfflineState } from './offline';
+import { errorReducer, ErrorState } from './generic.error.reducer';
 
-/**
- * Dispatch
- */
-export function useReduxDispatch(): ReduxDispatch {
-  return useDispatch<ReduxDispatch>();
+export interface IAppState extends ErrorState, ContentState, OfflineState {}
+
+export type ReduxDispatch<TArgs = any> = ThunkDispatch<
+  IAppState,
+  TArgs,
+  Action
+>;
+
+export function useReduxDispatch<T>(): ReduxDispatch<T> {
+  return useDispatch<ReduxDispatch<T>>();
 }
 
-export const appReducer = combineReducers({
+const rootReducer = combineReducers<IAppState>({
+  content: contentSlice,
+  offline: offlineSlice,
   errors: errorReducer,
 });
 
-export const rootReducer = (state, action) => {
-  if (action.type === 'auth/fetchLogout') {
-    state = undefined;
-  }
-  return appReducer(state, action);
-};
+export default rootReducer;

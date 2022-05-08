@@ -8,5 +8,8 @@ module.exports = {
     '<rootDir>/libs/store',
     '<rootDir>/apps/api',
     '<rootDir>/libs/shared',
+    '<rootDir>/libs/screens/add',
+    '<rootDir>/libs/entities',
+    '<rootDir>/libs/helpers',
   ],
 };
