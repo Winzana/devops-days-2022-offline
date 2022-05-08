@@ -1,27 +1,38 @@
-FROM node:13-alpine as node_build
+####################################
+# Install dependencies
+####################################
+FROM node:16.15-alpine as node_install
+RUN apk --no-cache add --virtual .builds-deps build-base python3
+
 # Create and change to the app directory.
 WORKDIR /usr/src/app
-RUN apk add --update --no-cache git
+
 COPY package*.json ./
+COPY yarn.lock ./yarn.lock
+COPY ./decorate-angular-cli.js ./decorate-angular-cli.js
+COPY ./workspace.json ./workspace.json
+COPY ./nx.json ./nx.json
+COPY ./tsconfig.base.json ./tsconfig.base.json
+COPY ./babel.config.json ./babel.config.json
 
-RUN npm install
+RUN yarn install
 
-COPY ./src ./src
-COPY ./public ./public
-COPY ./.eslintignore ./.eslintignore
-COPY ./.eslintrc.js ./.eslintrc.js
-COPY ./.prettierrc.js ./.prettierrc.js
-COPY ./tsconfig.json ./tsconfig.json
+COPY ./apps ./apps
+COPY ./libs ./libs
+COPY ./tools ./tools
 
 ####################################
-# Dashboard
+# website Dashboard
 ####################################
-FROM node_build as node_build_website
+FROM node_install as node_build_website
+ARG APP_ENV=production
+ARG BUILD_BIN
 
-ENV NODE_ENV=production
-RUN npm run build
+RUN yarn nx build ${BUILD_BIN} --configuration=$APP_ENV --memoryLimit 6144 --outputPath ./dist
 
 FROM nginx as website
+ARG BUILD_BIN
+
 COPY docker/website/default.conf /etc/nginx/conf.d/default.conf
 COPY docker/website/nginx.conf /etc/nginx/nginx.conf
-COPY --from=node_build_website /usr/src/app/build/ /usr/share/nginx/html/
+COPY --from=node_build_website /usr/src/app/dist /usr/share/nginx/html/

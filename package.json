@@ -1,5 +1,5 @@
 {
-  "name": "pam",
+  "name": "offline",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -59,8 +59,15 @@
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "~6.5.5",
-    "tslib": "^2.0.0"
+    "rxjs": "^7.0.0",
+    "tslib": "^2.3.0",
+    "@nestjs/mongoose": "^9.0.3",
+    "mongoose": "^6.3.2",
+
+
+    "axios": "^0.27.2",
+    "redux-thunk": "^2.4.1",
+    "regenerator-runtime": "0.13.7"
   },
   "devDependencies": {
     "@angular/cli": "^11.1.2",

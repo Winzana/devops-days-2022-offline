@@ -1,5 +1,5 @@
 {
-  "npmScope": "pam",
+  "npmScope": "offline",
   "implicitDependencies": {
     "workspace.json": "*",
     "package.json": { "dependencies": "*", "devDependencies": "*" },
@@ -15,7 +15,9 @@
     "screens-home": { "tags": [] },
     "components-layout": { "tags": [] },
     "navigators": { "tags": [] },
-    "store": { "tags": [] }
+    "store": { "tags": [] },
+    "api": { "tags": [] },
+    "shared": { "tags": [] }
   },
   "tasksRunnerOptions": {
     "default": {

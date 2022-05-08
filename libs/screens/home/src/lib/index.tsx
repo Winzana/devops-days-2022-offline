@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Text } from 'react-native-paper';
-import { Layout } from '@pam/components/layout';
+import { Layout } from '@components/layout';
 
 /* eslint-disable-next-line */
 export interface HomeProps {}

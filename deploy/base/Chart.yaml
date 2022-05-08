@@ -1,0 +1,8 @@
+apiVersion: v1
+name: saas
+version: 0.4
+appVersion: 0.4
+description: DevOps Day 2022
+maintainers:
+  - name: Vincent Journel
+    email: vincent@winzana.com

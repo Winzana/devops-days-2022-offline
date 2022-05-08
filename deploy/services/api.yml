@@ -1,0 +1,33 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: api
+  namespace: demo
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: '1'
+        autoscaling.knative.dev/metric: 'rps'
+        autoscaling.knative.dev/target: '4'
+    spec:
+      timeoutSeconds: 600
+      containers:
+        - image: gcr.io/winzana-workshop/devop-day-2022/api:v1.0.0
+          command: ['node', './dist/apps/api/main.js']
+          env:
+            - name: port
+              value: '8080'
+            - name: NODE_ENV
+              value: 'production'
+            # MONGODB
+            - name: MONGO_INITDB_HOST
+              value: 'saas-mongodb'
+            - name: MONGO_CONNECTION_STRING
+              value: 'mongodb+srv://root:root@saas-mongodb-headless.demo.svc.cluster.local?ssl=false'
+            - name: MONGO_REPLICA_SET_NAME
+              value: 'rs0'
+            - name: MONGO_INITDB_USERNAME
+              value: 'root'
+            - name: MONGO_INITDB_PASSWORD
+              value: 'root'

@@ -1,8 +1,8 @@
 import React from 'react';
 import { SafeAreaView, StatusBar, View } from 'react-native';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
-import { Navigator } from '@pam/navigators';
-import { ProviderStore } from '@pam/store';
+import { Navigator } from '@navigators';
+import { ProviderStore } from '@store';
 
 const theme = {
   ...DefaultTheme,

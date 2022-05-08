@@ -18,10 +18,11 @@
     "baseUrl": ".",
     "allowSyntheticDefaultImports": true,
     "paths": {
-      "@pam/screens/home": ["libs/screens/home/src/index.ts"],
-      "@pam/components/layout": ["libs/components/layout/src/index.ts"],
-      "@pam/navigators": ["libs/navigators/src/index.ts"],
-      "@pam/store": ["libs/store/src/index.ts"]
+      "@screens/home": ["libs/screens/home/src/index.ts"],
+      "@components/layout": ["libs/components/layout/src/index.ts"],
+      "@navigators": ["libs/navigators/src/index.ts"],
+      "@store": ["libs/store/src/index.ts"],
+      "@shared": ["libs/shared/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

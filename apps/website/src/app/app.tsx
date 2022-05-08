@@ -1,7 +1,7 @@
 import React from 'react';
-import { Navigator } from '@pam/navigators';
+import { Navigator } from '@navigators';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
-import { ProviderStore } from '@pam/store';
+import { ProviderStore } from '@store';
 
 const theme = {
   ...DefaultTheme,

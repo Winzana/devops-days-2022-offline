@@ -6,5 +6,7 @@ module.exports = {
     '<rootDir>/libs/components/layout',
     '<rootDir>/libs/navigators',
     '<rootDir>/libs/store',
+    '<rootDir>/apps/api',
+    '<rootDir>/libs/shared',
   ],
 };
