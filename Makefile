@@ -32,12 +32,18 @@ push-api:
 	docker push ${REGISTRY}${REPOSITORY}/api:${TAG}
 
 build-website:
-	docker build -t ${REGISTRY}${REPOSITORY}/website:${TAG} -f docker/website/Dockerfile --target website --build-arg BUILD_BIN="website" .
+	docker build --platform linux/amd64 -t ${REGISTRY}${REPOSITORY}/website:${TAG} -f docker/website/Dockerfile --target website --build-arg BUILD_BIN="website" .
 push-website:
 	docker push ${REGISTRY}${REPOSITORY}/website:${TAG}
 
-deploy:
-	kubectl apply -f k8s/knative/yamay/${NAMESPACE}/api-echo.yaml
+deploy-api:
+	kubectl apply -f deploy/services/api.yml
 
-destroy:
-	kubectl delete -f k8s/knative/yamay/${NAMESPACE}/api-echo.yaml
+destroy-api:
+	kubectl delete -f deploy/services/api.yml
+
+deploy-website:
+	kubectl apply -f deploy/services/website.yml
+
+destroy-website:
+	kubectl delete -f deploy/services/website.yml

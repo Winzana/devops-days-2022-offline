@@ -1,14 +1,14 @@
-const babelWebpackConfig = require('@nrwl/react/plugins/webpack');
+const babelWebpackConfig = require("@nrwl/react/plugins/webpack");
 
 module.exports = (config) => {
   config.resolve.alias = {
-    'react-native$': require.resolve('react-native-web'),
+    "react-native$": require.resolve("react-native-web")
   };
   config.module.rules.unshift({
     test: /\.js$/,
     exclude: /node_modules[/\\](?!react-native-vector-icons)/,
     use: {
-      loader: 'babel-loader',
+      loader: "babel-loader",
       options: {
         // Disable reading babel configuration
         babelrc: false,
@@ -16,24 +16,24 @@ module.exports = (config) => {
 
         // The configuration for compilation
         presets: [
-          ['@babel/preset-env', { useBuiltIns: 'usage' }],
-          '@babel/preset-react',
-          '@babel/preset-flow',
-          '@babel/preset-typescript',
+          ["@babel/preset-env", { useBuiltIns: "usage" }],
+          "@babel/preset-react",
+          "@babel/preset-flow",
+          "@babel/preset-typescript"
         ],
         plugins: [
-          '@babel/plugin-proposal-class-properties',
-          '@babel/plugin-proposal-object-rest-spread',
-        ],
-      },
-    },
+          "@babel/plugin-proposal-class-properties",
+          "@babel/plugin-proposal-object-rest-spread"
+        ]
+      }
+    }
   });
   config.module.rules.unshift({
     test: /\.(jpg|png|woff|woff2|eot|ttf|svg)$/,
-    loader: 'file-loader',
+    loader: "file-loader",
     options: {
-      esModule: false,
-    },
+      esModule: false
+    }
   });
   return babelWebpackConfig(config);
 };

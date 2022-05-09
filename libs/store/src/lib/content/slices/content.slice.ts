@@ -11,10 +11,12 @@ export interface IContentInitialState {
   loading: boolean;
   content: IContent | null;
   contents: { [key: string]: IContent };
+  lastUpdate: string | null;
 }
 
 export const initialState: IContentInitialState = {
   content: null,
+  lastUpdate: null,
   contents: {},
   loading: false,
   errors: {
@@ -49,7 +51,9 @@ const contentSlice = createSlice({
       state: State,
       action: PayloadAction<Normalized<IContent>>
     ) => {
+      console.log('========', action.payload);
       state.contents = { ...action.payload };
+      state.lastUpdate = new Date().toDateString();
       state.loading = false;
     },
 
@@ -67,6 +71,34 @@ const contentSlice = createSlice({
         fetchContent: _action.payload,
       };
     },
+    /**
+     * Store the user info and reset loading
+     */
+    fetchCreateContentSucceeded: (
+      state: State,
+      action: PayloadAction<IContent>
+    ) => {
+      state.contents = {
+        ...state.contents,
+        [action.payload.id]: action.payload,
+      };
+      state.loading = false;
+    },
+
+    fetchCreateContent: (state: State) => {
+      state.loading = true;
+    },
+
+    fetchCreateContentFailed: (
+      state: State,
+      _action: PayloadAction<IPayloadError>
+    ) => {
+      state.loading = false;
+      state.errors = {
+        ...state.errors,
+        fetchContent: _action.payload,
+      };
+    },
   },
 });
 
@@ -75,6 +107,9 @@ export const {
   fetchContentSucceeded,
   fetchContent,
   fetchContentFailed,
+  fetchCreateContentSucceeded,
+  fetchCreateContent,
+  fetchCreateContentFailed,
 } = contentSlice.actions;
 
 export default contentSlice.reducer;

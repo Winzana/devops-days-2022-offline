@@ -7,7 +7,8 @@ export class ContentApi {
   public static getContents = (
     filters: ContentsFilters
   ): Promise<AxiosResponse<Array<IContent>>> => {
-    const params = objectToSearchParams(filters);
+    let params = {};
+    if (filters.lastUpdate) params = objectToSearchParams(filters);
     return axios.get<Array<IContent>>('/api/contents', {
       params,
     });

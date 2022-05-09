@@ -20,6 +20,7 @@ RUN yarn install
 COPY ./apps ./apps
 COPY ./libs ./libs
 COPY ./tools ./tools
+COPY ./workbox-config.js ./workbox-config.js
 
 ####################################
 # website Dashboard
@@ -28,7 +29,7 @@ FROM node_install as node_build_website
 ARG APP_ENV=production
 ARG BUILD_BIN
 
-RUN yarn nx build ${BUILD_BIN} --configuration=$APP_ENV --memoryLimit 6144 --outputPath ./dist
+RUN yarn build ${BUILD_BIN} --configuration=$APP_ENV --memoryLimit 6144 --outputPath ./dist
 
 FROM nginx as website
 ARG BUILD_BIN

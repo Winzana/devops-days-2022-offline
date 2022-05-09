@@ -28,13 +28,9 @@ const MyComponent = () => {
     add: AddRoute,
   });
 
-  return (
-    <BottomNavigation
-      navigationState={{ index, routes }}
-      onIndexChange={changeRoute}
-      renderScene={renderScene}
-      style={{ position: 'fixed', bottom: 0, left: 0, width: '100%' }}
-    />
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  return (<BottomNavigation navigationState={{ index, routes }} onIndexChange={changeRoute} renderScene={renderScene} style={{ position: 'fixed', bottom: 0, left: 0, width: '100%' }} />
   );
 };
 

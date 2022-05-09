@@ -13,7 +13,7 @@ spec:
     spec:
       timeoutSeconds: 600
       containers:
-        - image: gcr.io/winzana-workshop/devop-day-2022/api:v1.0.0
+        - image: gcr.io/winzana-workshop/devop-day-2022/api:v1.0.3
           command: ['node', './dist/apps/api/main.js']
           env:
             - name: port

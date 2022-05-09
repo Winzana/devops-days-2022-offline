@@ -4,8 +4,11 @@ import { ContentState } from './slices/content.slice';
 import contentSlice, {
   fetchContent,
   fetchContentSucceeded,
-  fetchContentClear,
   fetchContentFailed,
+  fetchCreateContent,
+  fetchCreateContentSucceeded,
+  fetchCreateContentFailed,
+  fetchContentClear,
 } from './slices/content.slice';
 
 export {
@@ -17,4 +20,7 @@ export {
   fetchContentSucceeded,
   fetchContentClear,
   fetchContentFailed,
+  fetchCreateContent,
+  fetchCreateContentSucceeded,
+  fetchCreateContentFailed,
 };

@@ -6,17 +6,22 @@ import {
   loadingSelector,
 } from '../slices/content.slice';
 import { getContents } from '../thunks/content.thunk';
-import { ContentsFilters } from '../api/contents.filters';
+import { createContent as createContentThunk } from '../thunks/create-content.thunk';
+import { IContent } from '@entities';
 
-export const useContent = (loadOnMount = false) => {
+export const useContent = () => {
   const dispatch = useDispatch();
 
-  const getAllContents = (contentsFilters: ContentsFilters) => {
-    getContents(contentsFilters);
+  const getAllContents = () => {
+    dispatch(getContents());
   };
 
   const clearContent = () => {
     dispatch(fetchContentClear());
+  };
+
+  const createContent = async (content: IContent) => {
+    dispatch(createContentThunk(content));
   };
   const contentError = useSelector((state: ErrorState) => {
     selectError(state, 'content/fetchContent');
@@ -30,5 +35,6 @@ export const useContent = (loadOnMount = false) => {
     contents,
     getAllContents,
     clearContent,
+    createContent,
   };
 };

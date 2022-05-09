@@ -1,17 +1,5 @@
-import axios, { AxiosRequestConfig } from 'axios';
+import axios from 'axios';
 
-const configHandler = (config: AxiosRequestConfig) => {
-  if (localStorage) {
-    const token = localStorage.getItem('token');
-    const impersonateToken = localStorage.getItem('impersonateToken');
-    if (token != null) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-    if (impersonateToken) {
-      config.headers.Authorization = `Bearer ${impersonateToken}`;
-    }
-  }
-  return config;
-};
-
-axios.interceptors.request.use(configHandler);
+axios.defaults.baseURL = `https://api.demo.wz.camp`;
+axios.defaults.headers.post['Content-Type'] = 'application/json';
+axios.defaults.headers.get['Content-Type'] = 'application/json';

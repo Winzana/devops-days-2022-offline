@@ -3,7 +3,6 @@ import { Title } from 'react-native-paper';
 import { Layout } from '@components/layout';
 import ListContent from './components/List';
 import { Image, StyleSheet, View } from 'react-native';
-import { useContent } from '@store';
 
 /* eslint-disable-next-line */
 export interface HomeProps {}
@@ -34,7 +33,6 @@ const styles = StyleSheet.create({
 });
 
 export function Home(props: HomeProps) {
-  const { contents } = useContent();
   return (
     <>
       <Layout>

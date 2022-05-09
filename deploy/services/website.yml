@@ -1,0 +1,19 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: www
+  namespace: demo
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: '1'
+        autoscaling.knative.dev/metric: 'rps'
+        autoscaling.knative.dev/target: '4'
+    spec:
+      timeoutSeconds: 600
+      containers:
+        - image: gcr.io/winzana-workshop/devop-day-2022/website:v1.0.11
+          env:
+            - name: port
+              value: '8080'

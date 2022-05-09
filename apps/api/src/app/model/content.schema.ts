@@ -7,6 +7,9 @@ export type ContentDocument = Content & Document;
 @Schema()
 export class Content {
   @Prop()
+  id: string;
+
+  @Prop()
   title: string;
 
   @Prop()

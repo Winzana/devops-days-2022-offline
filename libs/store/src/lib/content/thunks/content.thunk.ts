@@ -3,20 +3,23 @@ import { AxiosResponse } from 'axios';
 import { AppThunk } from '../../generic.types';
 import { ContentApi } from '../api/content.api';
 import {
+  ContentState,
   fetchContent,
   fetchContentFailed,
   fetchContentSucceeded,
 } from '../slices/content.slice';
-import { ContentsFilters } from '../api/contents.filters';
 
-export const getContents = (
-  contentsFilters: ContentsFilters
-): AppThunk => async (dispatch) => {
+export const getContents = (): AppThunk<
+  Promise<boolean>,
+  ContentState
+> => async (dispatch, getState) => {
   dispatch(fetchContent());
   let response: AxiosResponse<IContent[], any>;
 
   try {
-    response = await ContentApi.getContents(contentsFilters);
+    response = await ContentApi.getContents({
+      lastUpdate: getState().content.lastUpdate,
+    });
     if (response && response.data) {
       let contents = {};
 
@@ -26,9 +29,18 @@ export const getContents = (
 
       // - Dispatch succeeded, set content
       dispatch(fetchContentSucceeded(contents));
-      return;
+      return true;
     }
   } catch ({ message, name, code, stack, isAxiosError, ...rest }) {
     //
+    dispatch(
+      fetchContentFailed({
+        message: 'An error occured',
+        name: 'An error occured',
+        isAxiosError: false,
+        stack: '',
+      })
+    );
   }
+  return false;
 };
