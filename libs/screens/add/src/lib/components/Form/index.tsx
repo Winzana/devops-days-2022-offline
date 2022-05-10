@@ -11,11 +11,10 @@ const FormContent = () => {
   const [body, setBody] = useState("");
   const [visible, setVisible] = useState(false);
   const formRef = useRef(null);
-  const inputTitleRef = useRef(null);
   const { createContent, getAllContents } = useContent();
 
   const handleSubmit = async (event) => {
-    await createContent({ id: uuid(), title, body, createdAt: new Date() });
+    await createContent({ id: uuid(), title, body, createdAt: (new Date()).toUTCString() });
     await getAllContents();
     setVisible(true);
     setTitle("");

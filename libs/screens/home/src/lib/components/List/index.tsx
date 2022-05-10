@@ -1,15 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { SafeAreaView, FlatList, StyleSheet, StatusBar } from 'react-native';
-import { Card, Paragraph } from 'react-native-paper';
-import { format } from 'date-fns';
-import { useContent } from '@store';
-import { IContent } from '@entities';
+import React, { useEffect, useState } from "react";
+import { SafeAreaView, FlatList, StyleSheet, StatusBar } from "react-native";
+import { Avatar, Card, Paragraph } from "react-native-paper";
+import { format } from "date-fns";
+import { useContent } from "@store";
+import { IContent } from "@entities";
 
-const Item = ({ item: { title, createdAt, id, body } }: { item: IContent }) => (
+const Item = ({ item: { title, createdAt, id, body, savedAt } }: { item: IContent }) => (
   <Card style={{ marginBottom: 25 }} key={id}>
     <Card.Title
       title={title}
       subtitle={format(new Date(createdAt), `yyyy-MM-dd HH:mm:ss`)}
+      right={(props) => {
+        if (savedAt) {
+          return (<></>);
+        }
+        return (<Avatar.Icon {...props} icon="upload" />);
+      }
+      }
     />
     <Card.Content>
       <Paragraph>{body}</Paragraph>
@@ -46,20 +53,20 @@ const ListContent = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
+    marginTop: StatusBar.currentHeight || 0
   },
   item: {
-    backgroundColor: '#f9c2ff',
+    backgroundColor: "#f9c2ff",
     padding: 20,
     marginVertical: 8,
-    marginHorizontal: 16,
+    marginHorizontal: 16
   },
   title: {
-    fontSize: 32,
+    fontSize: 32
   },
   body: {
-    fontSize: 26,
-  },
+    fontSize: 26
+  }
 });
 
 export default ListContent;

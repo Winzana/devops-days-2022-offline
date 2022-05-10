@@ -2,6 +2,7 @@ import { IContent } from '@entities';
 import { Normalized } from '@helpers';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IPayloadError } from '../../generic.types';
+import { set } from 'idb-keyval';
 
 export interface IContentInitialState {
   errors: {
@@ -51,10 +52,11 @@ const contentSlice = createSlice({
       state: State,
       action: PayloadAction<Normalized<IContent>>
     ) => {
-      console.log('========', action.payload);
       state.contents = { ...action.payload };
-      state.lastUpdate = new Date().toDateString();
+      state.lastUpdate = (new Date()).toUTCString();
       state.loading = false;
+      set('contents', JSON.stringify(state.contents));
+      set('lastUpdate', (new Date()).toUTCString());
     },
 
     fetchContent: (state: State) => {
@@ -79,10 +81,11 @@ const contentSlice = createSlice({
       action: PayloadAction<IContent>
     ) => {
       state.contents = {
-        ...state.contents,
         [action.payload.id]: action.payload,
+        ...state.contents,
       };
       state.loading = false;
+      set('contents', JSON.stringify(state.contents));
     },
 
     fetchCreateContent: (state: State) => {

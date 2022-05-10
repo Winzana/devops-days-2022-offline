@@ -14,18 +14,9 @@ export const createContent = (
 ): AppThunk<Promise<boolean>, OfflineState> => async (dispatch, getState) => {
   dispatch(fetchCreateContent());
   let response: AxiosResponse<IContent>;
-
   try {
     if (getState().offline.isOffline) {
-      // - Dispatch succeeded, set content
-      dispatch(
-        fetchCreateContentFailed({
-          message: 'An error occured',
-          name: 'An error occured',
-          isAxiosError: false,
-          stack: '',
-        })
-      );
+      dispatch(fetchCreateContentSucceeded(content));
       return false;
     } else {
       response = await CreateContentApi.post(content);

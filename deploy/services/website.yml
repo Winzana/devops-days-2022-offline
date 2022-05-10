@@ -13,7 +13,7 @@ spec:
     spec:
       timeoutSeconds: 600
       containers:
-        - image: gcr.io/winzana-workshop/devop-day-2022/website:v1.0.11
+        - image: gcr.io/winzana-workshop/devop-day-2022/website:v1.0.18
           env:
             - name: port
               value: '8080'
