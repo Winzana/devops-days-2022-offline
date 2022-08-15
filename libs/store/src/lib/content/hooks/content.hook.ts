@@ -1,15 +1,15 @@
-import { useDispatch, useSelector } from "react-redux";
-import { ErrorState, selectError } from "../../generic.error.reducer";
+import { useDispatch, useSelector } from 'react-redux';
+import { ErrorState, selectError } from '../../generic.error.reducer';
 import {
   contentSelector,
   fetchContentClear,
-  loadingSelector
-} from "../slices/content.slice";
-import { getContents } from "../thunks/content.thunk";
-import { createContent as createContentThunk } from "../thunks/create-content.thunk";
-import { IContent } from "@entities";
-import { useOffline } from "../../offline";
-import { useEffect } from "react";
+  loadingSelector,
+} from '../slices/content.slice';
+import { getContents } from '../thunks/content.thunk';
+import { createContent as createContentThunk } from '../thunks/create-content.thunk';
+import { IContent } from '@entities';
+import { useOffline } from '../../offline';
+import { useEffect } from 'react';
 
 export const useContent = () => {
   const dispatch = useDispatch();
@@ -26,15 +26,20 @@ export const useContent = () => {
     if (isOffline === false) {
       Object.values(contents).map((content: IContent) => {
         if (!content.savedAt) {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           dispatch(createContentThunk(content));
         }
       });
     }
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     dispatch(getContents());
   };
 
-
   const getAllContents = () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     dispatch(getContents());
   };
 
@@ -43,10 +48,12 @@ export const useContent = () => {
   };
 
   const createContent = async (content: IContent) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     dispatch(createContentThunk(content));
   };
   const contentError = useSelector((state: ErrorState) => {
-    selectError(state, "content/fetchContent");
+    selectError(state, 'content/fetchContent');
   });
 
   return {
@@ -55,6 +62,6 @@ export const useContent = () => {
     contents,
     getAllContents,
     clearContent,
-    createContent
+    createContent,
   };
 };

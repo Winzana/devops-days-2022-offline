@@ -11,5 +11,6 @@ module.exports = {
     '<rootDir>/libs/screens/add',
     '<rootDir>/libs/entities',
     '<rootDir>/libs/helpers',
+    '<rootDir>/apps/website2',
   ],
 };

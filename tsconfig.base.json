@@ -18,14 +18,14 @@
     "baseUrl": ".",
     "allowSyntheticDefaultImports": true,
     "paths": {
+      "@components/layout": ["libs/components/layout/src/index.ts"],
+      "@entities": ["libs/entities/src/index.ts"],
+      "@helpers": ["libs/helpers/src/index.ts"],
+      "@navigators": ["libs/navigators/src/index.ts"],
       "@screens/add": ["libs/screens/add/src/index.ts"],
       "@screens/home": ["libs/screens/home/src/index.ts"],
-      "@components/layout": ["libs/components/layout/src/index.ts"],
-      "@navigators": ["libs/navigators/src/index.ts"],
-      "@store": ["libs/store/src/index.ts"],
       "@shared": ["libs/shared/src/index.ts"],
-      "@entities": ["libs/entities/src/index.ts"],
-      "@helpers": ["libs/helpers/src/index.ts"]
+      "@store": ["libs/store/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

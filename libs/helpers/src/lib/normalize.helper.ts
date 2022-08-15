@@ -8,9 +8,11 @@ export const normalizeObject = <T extends object>(
 ): Normalized<T> => {
   return items.reduce<Normalized<T>>((acc, item) => {
     if (typeof item[key] !== 'string') {
-      throw new Error(`value of ${key} in each item should be a string`);
+      throw new Error(
+        `value of ${key.toString()} in each item should be a string`
+      );
     }
-    const id: string = (item[key] as unknown) as string;
+    const id: string = item[key] as unknown as string;
     acc[id] = item;
     return acc;
   }, {});
