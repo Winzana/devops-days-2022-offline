@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { View } from 'react-native';
 import { Banner, Button, TextInput } from 'react-native-paper';
 import { useNavigate } from '@navigate';
@@ -10,10 +10,9 @@ const FormContent = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [visible, setVisible] = useState(false);
-  const formRef = useRef(null);
   const { createContent, getAllContents } = useContent();
 
-  const handleSubmit = async (event) => {
+  const submitForm = async () => {
     await createContent({
       id: uuid(),
       title,
@@ -24,12 +23,6 @@ const FormContent = () => {
     setVisible(true);
     setTitle('');
     setBody('');
-    event.preventDefault();
-  };
-  const submitForm = () => {
-    formRef.current.dispatchEvent(
-      new Event('submit', { bubbles: true, cancelable: true })
-    );
   };
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -74,17 +67,17 @@ const FormContent = () => {
           Your content is correctly submitted.
         </Banner>
       </View>
-      <form onSubmit={handleSubmit} ref={formRef}>
-        <View style={{ paddingBottom: 15 }}>{renderTitle()}</View>
-        <View style={{ paddingBottom: 15 }}>{renderBody()}</View>
-        <Button
-          icon="content-save"
-          mode="contained"
-          onPress={() => submitForm()}
-        >
-          Save
-        </Button>
-      </form>
+      <View style={{ paddingBottom: 15 }}>{renderTitle()}</View>
+      <View style={{ paddingBottom: 15 }}>{renderBody()}</View>
+      <Button
+        icon="content-save"
+        mode="contained"
+        onPress={async () => {
+          await submitForm();
+        }}
+      >
+        Save
+      </Button>
     </>
   );
 };

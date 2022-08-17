@@ -2,7 +2,7 @@ import { IContent } from '@entities';
 import { Normalized } from '@helpers';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IPayloadError } from '../../generic.types';
-import { set } from 'idb-keyval';
+import { OfflineDataProvider } from '@offline-storage';
 
 export interface IContentInitialState {
   errors: {
@@ -53,10 +53,10 @@ const contentSlice = createSlice({
       action: PayloadAction<Normalized<IContent>>
     ) => {
       state.contents = { ...action.payload };
-      state.lastUpdate = (new Date()).toUTCString();
+      state.lastUpdate = new Date().toUTCString();
       state.loading = false;
-      set('contents', JSON.stringify(state.contents));
-      set('lastUpdate', (new Date()).toUTCString());
+      OfflineDataProvider.set('contents', JSON.stringify(state.contents));
+      OfflineDataProvider.set('lastUpdate', new Date().toUTCString());
     },
 
     fetchContent: (state: State) => {
@@ -85,7 +85,7 @@ const contentSlice = createSlice({
         ...state.contents,
       };
       state.loading = false;
-      set('contents', JSON.stringify(state.contents));
+      OfflineDataProvider.set('contents', JSON.stringify(state.contents));
     },
 
     fetchCreateContent: (state: State) => {

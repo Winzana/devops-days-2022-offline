@@ -1,6 +1,6 @@
-import React, { ReactComponentElement, ReactElement, useState } from 'react';
-import { Image, ScrollView } from 'react-native';
-import BottomNavigation from './BottomNavigation/index.web';
+import React from 'react';
+import { ScrollView } from 'react-native';
+import BottomNavigation from './BottomNavigation';
 import { Banner } from 'react-native-paper';
 import { useOffline } from '@store';
 

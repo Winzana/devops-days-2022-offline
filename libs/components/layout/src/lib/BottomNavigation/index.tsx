@@ -30,7 +30,13 @@ const MyComponent = () => {
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  return (<BottomNavigation navigationState={{ index, routes }} onIndexChange={changeRoute} renderScene={renderScene} style={{ position: 'fixed', bottom: 0, left: 0, width: '100%' }} />
+  return (
+    <BottomNavigation
+      navigationState={{ index, routes }}
+      onIndexChange={changeRoute}
+      renderScene={renderScene}
+      style={{ position: 'fixed', bottom: 0, left: 0, width: '100%' }}
+    />
   );
 };
 

@@ -12,5 +12,7 @@ module.exports = {
     '<rootDir>/libs/entities',
     '<rootDir>/libs/helpers',
     '<rootDir>/apps/website2',
+    '<rootDir>/libs/offline-storage',
+    '<rootDir>/libs/navigate',
   ],
 };

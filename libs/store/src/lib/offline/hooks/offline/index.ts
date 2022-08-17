@@ -3,7 +3,7 @@ import {
   fetchOfflineOne,
   fetchOfflineOff,
   offlineSelector,
-} from '../slices/offline.slice';
+} from '../../slices/offline.slice';
 import { useEffect } from 'react';
 
 export const useOffline = () => {

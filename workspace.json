@@ -195,6 +195,29 @@
       },
       "tags": []
     },
+    "navigate": {
+      "root": "libs/navigate",
+      "sourceRoot": "libs/navigate/src",
+      "projectType": "library",
+      "tags": [],
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/navigate/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/navigate"],
+          "options": {
+            "jestConfig": "libs/navigate/jest.config.ts",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "navigators": {
       "$schema": "../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/navigators",
@@ -217,6 +240,29 @@
         }
       },
       "tags": []
+    },
+    "offline-storage": {
+      "root": "libs/offline-storage",
+      "sourceRoot": "libs/offline-storage/src",
+      "projectType": "library",
+      "tags": [],
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/offline-storage/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/offline-storage"],
+          "options": {
+            "jestConfig": "libs/offline-storage/jest.config.ts",
+            "passWithNoTests": true
+          }
+        }
+      }
     },
     "screens-add": {
       "$schema": "../../../node_modules/nx/schemas/project-schema.json",

@@ -21,6 +21,15 @@
     "react-redux": "*",
     "@reduxjs/toolkit": "*",
     "redux-logger": "*",
-    "axios": "*"
+    "axios": "*",
+    "date-fns": "*",
+    "@nestjs/common": "*",
+    "redux": "*",
+    "redux-thunk": "*",
+    "react-uuid": "*",
+    "@react-native-async-storage/async-storage": "*",
+    "idb-keyval": "*",
+    "@react-navigation/bottom-tabs": "*",
+    "@react-native-community/netinfo": "*"
   }
 }
