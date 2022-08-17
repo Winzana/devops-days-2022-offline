@@ -51,7 +51,7 @@ const FormContent = () => {
 
   return (
     <>
-      <View style={{ paddingBottom: 15, height: '400', flex: 1 }}>
+      <View style={{ paddingBottom: 15, flex: 1 }}>
         <Banner
           visible={visible}
           actions={[
